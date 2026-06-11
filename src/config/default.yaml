@@ -1,0 +1,39 @@
+project:
+  name: "residual_diffusion_nowcasting_v2"
+  seed: 42
+
+paths:
+  data_dir: "/kaggle/input/sevir-vil" # Can be overwritten dynamically
+  checkpoint_dir: "./checkpoints"
+  output_dir: "./outputs"
+
+data:
+  img_size: 128
+  in_seq: 13      # 65 min input
+  out_seq: 12     # 60 min output
+  train_ratio: 0.70
+  val_ratio: 0.15
+
+model:
+  base_channels: 64
+  cbam_reduction: 8
+  hint_channels: 16
+
+diffusion:
+  timesteps: 1000
+  ddim_steps: 50
+  beta_start: 0.0001
+  beta_end: 0.02
+
+training:
+  use_amp: true
+  det:
+    epochs: 150
+    batch_size: 4
+    lr: 1.0e-4
+    weight_decay: 1.0e-5
+    grad_clip: 1.0
+  diff:
+    epochs: 200
+    batch_size: 2
+    lr: 5.0e-5
