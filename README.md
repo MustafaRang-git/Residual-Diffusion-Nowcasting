@@ -31,15 +31,9 @@ By leveraging the Residual Diffusion process, the model successfully synthesizes
 ## 🚀 Reproducibility & Interactive Demo
 I built a fully interactive Streamlit application to demonstrate the model's capabilities in real-time. The application pulls unseen storm events, runs the diffusion inference, and generates an automated 60-minute forecast simulation loop.
 
-### Run it Locally
-Ensure you have the required `data/` and model weights (`.pth`), then run:
-```bash
-# 1. Clone the repository
-git clone https://github.com/MustafaRang-git/Residual-Diffusion-Nowcasting.git
-cd Residual-Diffusion-Nowcasting
+This project was executed on **Kaggle** to leverage its GPU resources. The primary orchestration script is `forecast.ipynb`, which contains a complete end-to-end pipeline, from data processing to visualization.
 
-# 2. Activate your environment and install dependencies
-pip install -r requirements.txt
+**Kaggle Notebook Link:**
+https://www.kaggle.com/code/mrstudent2025/forecast
 
-# 3. Launch the Simulation App
-streamlit run app/streamlit_app.py
+All necessary configurations (paths, hyperparameters, etc.) can be modified in `config.py`.
